@@ -5,12 +5,14 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import VueDevTools from 'vite-plugin-vue-devtools'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
         VueDevTools(),
+        vueJsx(),
         AutoImport({
             resolvers: [ElementPlusResolver()],
         }),
@@ -24,4 +26,9 @@ export default defineConfig({
             symbolId: 'icon-[name]'
         }),
     ],
+    resolve: {
+        alias: {
+          '@': path.resolve(__dirname, './src')  // 为./src配置别名
+        }
+      }
 })

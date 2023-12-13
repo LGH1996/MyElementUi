@@ -24,7 +24,7 @@ import HollowWrold from '../components/HelloWorld.vue'
 // 公共路由
 export const constantRoutes = [
   {
-    path: '/redirect',
+    path: '/hellow1',
     component: HollowWrold,
     hidden: true,
     children: [
@@ -35,12 +35,12 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/login',
+    path: '/hellow2',
     component: HollowWrold,
     hidden: true
   },
 	{
-	  path: '/wxlogin',
+	  path: '/hellow3',
 	  component: HollowWrold,
 	  hidden: true
 	},

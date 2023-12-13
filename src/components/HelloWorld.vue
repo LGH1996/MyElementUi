@@ -1,5 +1,11 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+const router = useRouter();
+const route = useRoute();
+onMounted(()=>{
+    console.log(JSON.stringify(route) )
+})
 
 defineProps({
   msg: String,
@@ -9,7 +15,8 @@ const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ msg}}</h1>
+  <h1> {{ route.query }}</h1>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>

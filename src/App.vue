@@ -1,15 +1,21 @@
-<script setup>
-import NavigationBar from './components/NavigationBar.vue'
-</script>
-
 <template>
-    <div class="aside">
-        <navigation-bar></navigation-bar>
+    <div class="aside" onselectstart="return false">
+        <menu-bar v-bind:datas="mebu.data" />
     </div>
     <div class="main">
         <router-view />
     </div>
 </template>
+
+<script setup>
+import { reactive, onMounted } from 'vue'
+import MenuBar from './components/MenuBar/MenuBar.vue'
+import routeDate from './js/routeData'
+const mebu = reactive(routeDate)
+onMounted(()=>{
+    console.log(mebu.data)
+})
+</script>
 
 <style scoped>
 .aside {
